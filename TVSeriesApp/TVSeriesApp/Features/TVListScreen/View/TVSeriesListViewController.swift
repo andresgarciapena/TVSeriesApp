@@ -19,6 +19,17 @@ class TVSeriesListViewController: UIViewController {
 
         presenter.viewRef = self
         presenter.viewDidLoad()
+        
+        TVSServiceManager.sharedService.requestMusicList(completion: {(response, error) -> Void in
+            
+            DispatchQueue.main.async {
+                
+                if let list = response?.results {
+                    
+                    print(list[1])
+                }
+            }
+        })
     }
     
     override func viewWillAppear(_ animated: Bool) {
