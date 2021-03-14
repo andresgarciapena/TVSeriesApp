@@ -7,17 +7,11 @@
 
 import UIKit
 
-enum PageType {
-    case next
-    case previous
-    case last
-    case first
-}
-
 class TVSeriesListViewController: UIViewController {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var actualPageLabel: UILabel!
     
     var presenter: TVSeriesPresenter = TVSeriesPresenter()
     

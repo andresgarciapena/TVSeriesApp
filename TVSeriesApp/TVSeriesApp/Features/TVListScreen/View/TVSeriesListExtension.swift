@@ -11,9 +11,15 @@ extension TVSeriesListViewController {
     
     func configureView() {
         
+        updateActualPage()
         presenter.getSeriesList(type: .first)
-        collectionView.register(UINib(nibName: "TVCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "TVCollectionViewCell")
+        collectionView.register(UINib(nibName: CellNames.tvCollectionCell, bundle: nil), forCellWithReuseIdentifier: CellNames.tvCollectionCell)
         collectionView.reloadData()
+    }
+    
+    func updateActualPage() {
+        
+        actualPageLabel.text = String(actualPage)
     }
 }
 
@@ -29,7 +35,7 @@ extension TVSeriesListViewController: UICollectionViewDelegate, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TVCollectionViewCell", for: indexPath) as! TVCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellNames.tvCollectionCell, for: indexPath) as! TVCollectionViewCell
         if let serie = seriesListRecieved?.results[indexPath.row] {
             cell.setTVSeriesInformation(info: serie)
         }

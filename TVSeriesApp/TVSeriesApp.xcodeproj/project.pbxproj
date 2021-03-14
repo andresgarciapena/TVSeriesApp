@@ -35,6 +35,8 @@
 		788B8EA725FEA21F00009B3A /* StarRatingStackView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 788B8EA425FEA21F00009B3A /* StarRatingStackView.xib */; };
 		788B8EA825FEA21F00009B3A /* StarRatingStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788B8EA525FEA21F00009B3A /* StarRatingStackView.swift */; };
 		788B8EA925FEA21F00009B3A /* StarRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788B8EA625FEA21F00009B3A /* StarRatingView.swift */; };
+		788B8EB425FEA84B00009B3A /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788B8EB325FEA84B00009B3A /* Utils.swift */; };
+		788B8EB925FEA85900009B3A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788B8EB825FEA85900009B3A /* Constants.swift */; };
 		AD79B778C3A97A61C1D78669 /* Pods_TVSeriesAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F31927BC5B650B52B5DA39B /* Pods_TVSeriesAppTests.framework */; };
 		B7D07056B4AE5D81A6311151 /* Pods_TVSeriesApp_TVSeriesAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73189C6CECD4EE405C10D992 /* Pods_TVSeriesApp_TVSeriesAppUITests.framework */; };
 /* End PBXBuildFile section */
@@ -94,6 +96,8 @@
 		788B8EA425FEA21F00009B3A /* StarRatingStackView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StarRatingStackView.xib; sourceTree = "<group>"; };
 		788B8EA525FEA21F00009B3A /* StarRatingStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarRatingStackView.swift; sourceTree = "<group>"; };
 		788B8EA625FEA21F00009B3A /* StarRatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarRatingView.swift; sourceTree = "<group>"; };
+		788B8EB325FEA84B00009B3A /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		788B8EB825FEA85900009B3A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		88177E152C0622991A08011F /* Pods-TVSeriesAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TVSeriesAppTests.debug.xcconfig"; path = "Target Support Files/Pods-TVSeriesAppTests/Pods-TVSeriesAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BAFB858354663416D7478E2A /* Pods-TVSeriesApp-TVSeriesAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TVSeriesApp-TVSeriesAppUITests.release.xcconfig"; path = "Target Support Files/Pods-TVSeriesApp-TVSeriesAppUITests/Pods-TVSeriesApp-TVSeriesAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		C9F12A35A4365F4283C3B764 /* Pods_TVSeriesApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TVSeriesApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -334,6 +338,8 @@
 			isa = PBXGroup;
 			children = (
 				788B8EA325FEA20200009B3A /* StarRatingComponent */,
+				788B8EB325FEA84B00009B3A /* Utils.swift */,
+				788B8EB825FEA85900009B3A /* Constants.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -613,10 +619,12 @@
 				788B8E6125FE027A00009B3A /* TVCollectionViewCell.swift in Sources */,
 				788B8DFA25FBB57700009B3A /* TVSeriesInteractor.swift in Sources */,
 				788B8E0A25FBC48F00009B3A /* TVServiceResponse.swift in Sources */,
+				788B8EB925FEA85900009B3A /* Constants.swift in Sources */,
 				788B8EA825FEA21F00009B3A /* StarRatingStackView.swift in Sources */,
 				788B8E0525FBC3ED00009B3A /* TVServiceManager.swift in Sources */,
 				788B8DFF25FBB96700009B3A /* TVSeriesListExtension.swift in Sources */,
 				788B8E8E25FE91F900009B3A /* TVSeriesDetailPresenter.swift in Sources */,
+				788B8EB425FEA84B00009B3A /* Utils.swift in Sources */,
 				788B8E9325FE921200009B3A /* TVSeriesDetailInteractor.swift in Sources */,
 				788B8DF525FBB55D00009B3A /* TVSeriesPresenter.swift in Sources */,
 				788B8D8825FBA46B00009B3A /* SceneDelegate.swift in Sources */,

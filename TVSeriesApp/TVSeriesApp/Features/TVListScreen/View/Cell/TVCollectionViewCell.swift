@@ -18,21 +18,8 @@ class TVCollectionViewCell: UICollectionViewCell {
     }
     
     func setTVSeriesInformation(info: TVResultsList) {
-        let imageUrlString = "https://image.tmdb.org/t/p/w500"+info.poster_path
-        posterImageView.image = urlToImage(urlString: imageUrlString)
+        let imageUrlString = URLConstants.imagesUrlPath+info.poster_path
+        posterImageView.image = Utils().urlToImage(urlString: imageUrlString)
         titleLabel.text = info.name
     }
-
-
-    func urlToImage(urlString: String) -> UIImage {
-        var imageToShow = UIImage()
-        if let imageUrl = URL(string: urlString) {
-            let imageData = try! Data(contentsOf: imageUrl)
-            if let image = UIImage(data: imageData) {
-                imageToShow = image
-            }
-        }
-        return imageToShow
-    }
-
 }

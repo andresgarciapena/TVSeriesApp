@@ -34,6 +34,7 @@ class TVSeriesPresenter: TVSeriesProtocol {
         
         viewRef?.seriesListRecieved = seriesResult
         viewRef?.actualPage = actualPage
+        viewRef?.updateActualPage()
         viewRef?.collectionView.reloadData()
     }
     
