@@ -18,6 +18,8 @@ extension TVSeriesDetailViewController {
         descriptionLabel.text = seriesDetail?.overview
         countryLabel.text = "Country: " + (seriesDetail?.origin_country[0])!
         dateLabel.text = "Air date: " + seriesDetail!.first_air_date
+        ratingValueLabel.text = String(seriesDetail!.vote_average) + "/10"
+        starRatingView.rating = Float(seriesDetail!.vote_average/2)
     }
     
     func urlToImage(urlString: String) -> UIImage {

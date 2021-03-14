@@ -14,6 +14,8 @@ class TVSeriesDetailViewController: UIViewController {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var countryLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var starRatingView: StarRatingView!
+    @IBOutlet weak var ratingValueLabel: UILabel!
     
     var presenter: TVSeriesDetailPresenter = TVSeriesDetailPresenter()
     
