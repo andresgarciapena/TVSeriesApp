@@ -36,4 +36,10 @@ class TVSeriesPresenter: TVSeriesProtocol {
         viewRef?.actualPage = actualPage
         viewRef?.collectionView.reloadData()
     }
+    
+    func navigationSeriesDetailView(seriesDetail: TVResultsList?) {
+        
+        guard let sourceController = viewRef else { return }
+        router?.goToSeriesDetailView(seriesDetail: seriesDetail, fromController: sourceController)
+    }
 }

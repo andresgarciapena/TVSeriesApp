@@ -19,9 +19,13 @@ protocol TVSeriesProtocol {
 
 protocol TVSeriesRouterProtocol {
     
+    func goToSeriesDetailView(seriesDetail: TVResultsList?, fromController: TVSeriesListViewController)
 }
 
 protocol TVSeriesInteractorProtocol {
     
     var presenter: TVSeriesPresenter? {get set}
+    
+    func getSeriesListByPage(type: PageType, pageNumber: Int)
+    func getSeriesList(pageNumber: Int)
 }

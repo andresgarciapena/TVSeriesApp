@@ -36,6 +36,12 @@ extension TVSeriesListViewController: UICollectionViewDelegate, UICollectionView
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        guard let serie = seriesListRecieved?.results[indexPath.row] else { return }
+        presenter.navigationSeriesDetailView(seriesDetail: serie)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         return CGSize(width: collectionView.bounds.width/2 - 10, height: 320)
