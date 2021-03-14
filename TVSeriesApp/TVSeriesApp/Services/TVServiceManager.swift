@@ -12,10 +12,12 @@ class TVSServiceManager {
     
     static let sharedService = TVSServiceManager()
     
-    func requestMusicList(completion: @escaping (TVServiceResponse?, Error?) -> Void) {
+    func requestSeriesList(pageNumber: String, completion: @escaping (TVServiceResponse?, Error?) -> Void) {
         
         let apiKey = "c6aeee577586ba38e487b74dfede5deb"
-        let apiUrl = "https://api.themoviedb.org/3/tv/popular?api_key=" + apiKey
+        let lenguageString = "&language=es-ES"
+        let pageString = "&page="
+        let apiUrl = "https://api.themoviedb.org/3/tv/popular?api_key=" + apiKey + lenguageString + pageString + pageNumber
         
         let request = AF.request(apiUrl)
 
@@ -24,6 +26,5 @@ class TVSServiceManager {
             completion(result, nil)
         }
     }
-
 }
 

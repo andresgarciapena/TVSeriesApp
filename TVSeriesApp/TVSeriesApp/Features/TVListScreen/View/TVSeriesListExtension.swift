@@ -11,22 +11,33 @@ extension TVSeriesListViewController {
     
     func configureView() {
         
-        tableView.register(UINib(nibName: "TVTableViewCell", bundle: nil), forCellReuseIdentifier: "TVTableViewCell")
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 80
+        presenter.getSeriesList(type: .first)
+        collectionView.register(UINib(nibName: "TVCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "TVCollectionViewCell")
+        collectionView.reloadData()
     }
 }
 
-extension TVSeriesListViewController: UITableViewDelegate, UITableViewDataSource {
+extension TVSeriesListViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        if let list = seriesListRecieved?.results {
+            return list.count
+        }
+        return 0
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TVTableViewCell", for: indexPath) as! TVTableViewCell
-        cell.titleLabel.text = "Title"
-        cell.descriptionLabel.text = "Description"
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TVCollectionViewCell", for: indexPath) as! TVCollectionViewCell
+        if let serie = seriesListRecieved?.results[indexPath.row] {
+            cell.setTVSeriesInformation(info: serie)
+        }
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        return CGSize(width: collectionView.bounds.width/2 - 10, height: 320)
     }
 }

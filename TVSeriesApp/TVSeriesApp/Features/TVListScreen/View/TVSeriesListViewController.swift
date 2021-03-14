@@ -7,34 +7,49 @@
 
 import UIKit
 
+enum PageType {
+    case next
+    case previous
+    case last
+    case first
+}
+
 class TVSeriesListViewController: UIViewController {
 
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var collectionView: UICollectionView!
     
     var presenter: TVSeriesPresenter = TVSeriesPresenter()
+    
+    var seriesListRecieved: TVServiceResponse?
+    var actualPage = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         presenter.viewRef = self
         presenter.viewDidLoad()
-        
-        TVSServiceManager.sharedService.requestMusicList(completion: {(response, error) -> Void in
-            
-            DispatchQueue.main.async {
-                
-                if let list = response?.results {
-                    
-                    print(list[1])
-                }
-            }
-        })
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         presenter.viewWillAppear(animated: animated, navigationController: navigationController)
+    }
+    
+    @IBAction func nextPageButtonTapped(_ sender: Any) {
+        presenter.getSeriesList(type: .next)
+    }
+    
+    @IBAction func previousPageButtonTapped(_ sender: Any) {
+        presenter.getSeriesList(type: .previous)
+    }
+    
+    @IBAction func showLastPageButtonTapped(_ sender: Any) {
+        presenter.getSeriesList(type: .last)
+    }
+    
+    @IBAction func showFirstPageButtonTapped(_ sender: Any) {
+        presenter.getSeriesList(type: .first)
     }
 }

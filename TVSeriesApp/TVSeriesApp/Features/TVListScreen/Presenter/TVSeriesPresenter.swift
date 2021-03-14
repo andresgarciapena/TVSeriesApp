@@ -23,4 +23,17 @@ class TVSeriesPresenter: TVSeriesProtocol {
         
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
+    
+    func getSeriesList(type: PageType) {
+        
+        guard let actualPage = viewRef?.actualPage else { return }
+        interactor?.getSeriesListByPage(type: type, pageNumber: actualPage)
+    }
+    
+    func seriesListRecieved(seriesResult: TVServiceResponse, actualPage: Int) {
+        
+        viewRef?.seriesListRecieved = seriesResult
+        viewRef?.actualPage = actualPage
+        viewRef?.collectionView.reloadData()
+    }
 }
