@@ -6,28 +6,35 @@
 //
 
 import XCTest
+import Alamofire
 @testable import TVSeriesApp
 
 class TVSeriesAppTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    override func setUp() {
+        super.setUp()
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    override func tearDown() {
+        super.tearDown()
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    
+    func testValidSeriesPopularPage1CallToApi() {
+        
+        let url = "https://api.themoviedb.org/3/tv/popular?api_key=c6aeee577586ba38e487b74dfede5deb&language=en-EN&page=1"
+        
+        let request = AF.request(url)
+        
+        request.responseDecodable(of: TVServiceResponse.self) { (response) in
+          guard let _ = response.value else { return }
+            
+            if let statusCode = response.response?.statusCode {
+                if statusCode == 200 {
+                    XCTAssert(statusCode == 200)
+                } else {
+                    XCTFail("Status code: \(statusCode)")
+                }
+            }
         }
     }
-
 }
